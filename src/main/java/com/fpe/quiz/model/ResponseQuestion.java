@@ -20,7 +20,7 @@ public class ResponseQuestion implements Serializable {
     private Long Idreponse;
     private String response ;
     private Boolean correct ;
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonBackReference(value = "response-ques")
     private Question question ;
 }

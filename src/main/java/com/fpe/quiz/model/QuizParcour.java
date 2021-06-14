@@ -24,12 +24,11 @@ public class QuizParcour implements Serializable {
     private Long Idquiz;
     private Integer  numberquestions ;
     @OneToMany(mappedBy = "quizparcour" , cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JsonManagedReference
+    @JsonManagedReference(value = "questio-parc")
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Question> questions ;
 
     @OneToOne( fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JsonBackReference
     private Parcour parcour ;
 
 }

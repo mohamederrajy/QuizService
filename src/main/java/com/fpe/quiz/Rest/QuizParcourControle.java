@@ -1,12 +1,11 @@
 package com.fpe.quiz.Rest;
 
 
-import com.fpe.quiz.model.QuizCourse;
 import com.fpe.quiz.model.QuizParcour;
-import com.fpe.quiz.service.QuizCourseService;
 import com.fpe.quiz.service.QuizParcourService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import vo.converters.QuizcoureConverter;
 
 import java.util.List;
 
@@ -17,10 +16,11 @@ public class QuizParcourControle {
     @Autowired
     QuizParcourService quizParcourService ;
 
+
     @PostMapping("/{ParcourId}")
     @ResponseBody
     public QuizParcour save(@PathVariable Long ParcourId, @RequestBody QuizParcour quizParcour) {
-
+       // System.out.println(quizParcour);
         return quizParcourService.save(quizParcour,ParcourId);
 
     }

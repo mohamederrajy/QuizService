@@ -24,7 +24,7 @@ public class Question implements Serializable {
     private Long idquestion;
     private String Question ;
     @OneToMany(mappedBy = "question" , cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JsonManagedReference
+    @JsonManagedReference(value = "response-ques")
     @Fetch(value = FetchMode.SUBSELECT)
     private List<ResponseQuestion> responses ;
 
@@ -33,7 +33,7 @@ public class Question implements Serializable {
     private QuizCourse quizcourse ;
 
     @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JsonBackReference
+    @JsonBackReference(value = "questio-parc")
     private QuizParcour quizparcour ;
 
 

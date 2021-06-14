@@ -4,8 +4,12 @@ import com.fpe.quiz.model.Coure;
 import com.fpe.quiz.model.QuizCourse;
 import com.fpe.quiz.service.CouresService;
 import com.fpe.quiz.service.QuizCourseService;
+import com.fpe.quiz.utils.AbstractConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import vo.QuizCourseVo;
+import vo.converters.QuizcoureConverter;
 
 import java.util.List;
 
@@ -18,21 +22,23 @@ public class QuizCourseImp  implements QuizCourseService {
     @Autowired
     CouresService couresService;
 
-
-
+    @Autowired
+    @Qualifier("quizcoureConverter")
+    private AbstractConverter<QuizCourse,QuizCourseVo> quizcoureConverter;
 
     @Override
-    public List<QuizCourse> findAll() {
-        return quizCourseDao.findAll();
+    public List<QuizCourseVo> findAll() {
+        return  quizcoureConverter.toVo(quizCourseDao.findAll());
     }
 
     @Override
-    public QuizCourse findById(long id) {
-        return quizCourseDao.findById(id).get();
+    public QuizCourseVo findById(long id) {
+        return quizcoureConverter.toVo(quizCourseDao.findById(id).get());
     }
 
     @Override
     public QuizCourse save(QuizCourse quizCourse , Long CoureId) {
+        // quizCourseVo  =
         Coure coure = couresService.findById(CoureId);
         if (coure == null) {
             return null;
@@ -48,7 +54,7 @@ public class QuizCourseImp  implements QuizCourseService {
 
     @Override
     public void DeleteQuiz(Long id) {
-        quizCourseDao.delete(findById(id));
+        quizCourseDao.deleteById(id);
     }
 
     @Override
