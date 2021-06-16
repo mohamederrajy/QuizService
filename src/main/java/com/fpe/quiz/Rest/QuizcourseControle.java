@@ -1,23 +1,24 @@
 package com.fpe.quiz.Rest;
-import com.fpe.quiz.model.Coure;
 import com.fpe.quiz.model.QuizCourse;
 import com.fpe.quiz.service.QuizCourseService;
 import com.fpe.quiz.utils.AbstractConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
-import vo.QuizCourseVo;
+import com.fpe.quiz.vo.QuizCourseVo;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/quizcoure")
 public class QuizcourseControle {
     @Autowired
     QuizCourseService quizCourseService ;
 
- 
+    @Autowired
+    @Qualifier("quizcoureConverter")
+    private AbstractConverter<QuizCourse,QuizCourseVo> quizcoureConverter;
 
     @PostMapping("/save/{CoursId}")
     @ResponseBody
@@ -30,13 +31,13 @@ public class QuizcourseControle {
     @ResponseBody
     public List<QuizCourseVo> findAll() {
 
-        return quizCourseService.findAll();
+        return quizcoureConverter.toVo(quizCourseService.findAll());
     }
     @GetMapping("/{id}")
     @ResponseBody
     public QuizCourseVo findById(@PathVariable long id) {
 
-        return quizCourseService.findById(id);
+        return quizcoureConverter.toVo(quizCourseService.findById(id));
     }
 
     @DeleteMapping("/delete/{id}")

@@ -1,29 +1,30 @@
-package vo.converters;
+package com.fpe.quiz.vo.converters;
 
-import com.fpe.quiz.model.Parcour;
+import com.fpe.quiz.model.Coure;
+
 import com.fpe.quiz.utils.AbstractConverter;
 import org.springframework.stereotype.Component;
-import vo.ParcourVo;
+import com.fpe.quiz.vo.CoureVo;
 
 @Component
-public class ParcourConverter  extends AbstractConverter<Parcour, ParcourVo> {
+public class CourConverter extends AbstractConverter<Coure, CoureVo> {
     @Override
-    public Parcour toItem(ParcourVo vo) {
+    public Coure toItem(CoureVo vo) {
         if (vo == null) return null;
-        Parcour item = new Parcour();
+        Coure item = new Coure();
         item.setTitle(vo.getTitle());
         item.setDescription(vo.getDescription());
-        item.setIdparcour(vo.getIdparcour());
+        item.setIdcour(vo.getIdcour());
         return item;
     }
 
     @Override
-    public ParcourVo toVo(Parcour item) {
+    public CoureVo toVo(Coure item) {
         if (item == null) return null;
-        ParcourVo vo =new ParcourVo();
+        CoureVo vo = new CoureVo();
         vo.setTitle(item.getTitle());
         vo.setDescription(item.getDescription());
-        vo.setIdparcour(item.getIdparcour());
+        vo.setIdcour(item.getIdcour());
         return vo;
     }
 }

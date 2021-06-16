@@ -1,4 +1,4 @@
-package vo;
+package com.fpe.quiz.vo;
 
 import com.fpe.quiz.model.Question;
 import lombok.*;
@@ -11,6 +11,6 @@ public class ResponseQuestionVo {
     private Long Idreponse;
     private String response ;
     private Boolean correct ;
-    private QuestionVo question ;
+
 
 }

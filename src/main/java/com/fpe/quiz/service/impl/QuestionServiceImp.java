@@ -38,5 +38,10 @@ public class QuestionServiceImp implements QuestionService {
         return questionDao.findById(id).get().getResponses();
     }
 
+    @Override
+    public void DeleteById(Long id) {
+        questionDao.deleteById(id);
+    }
+
 
 }

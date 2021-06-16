@@ -8,8 +8,7 @@ import com.fpe.quiz.utils.AbstractConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import vo.QuizCourseVo;
-import vo.converters.QuizcoureConverter;
+import com.fpe.quiz.vo.QuizCourseVo;
 
 import java.util.List;
 
@@ -22,18 +21,17 @@ public class QuizCourseImp  implements QuizCourseService {
     @Autowired
     CouresService couresService;
 
-    @Autowired
-    @Qualifier("quizcoureConverter")
-    private AbstractConverter<QuizCourse,QuizCourseVo> quizcoureConverter;
+
+
 
     @Override
-    public List<QuizCourseVo> findAll() {
-        return  quizcoureConverter.toVo(quizCourseDao.findAll());
+    public List<QuizCourse> findAll() {
+        return  quizCourseDao.findAll();
     }
 
     @Override
-    public QuizCourseVo findById(long id) {
-        return quizcoureConverter.toVo(quizCourseDao.findById(id).get());
+    public QuizCourse findById(long id) {
+        return quizCourseDao.findById(id).get();
     }
 
     @Override

@@ -28,11 +28,11 @@ public class Question implements Serializable {
     @Fetch(value = FetchMode.SUBSELECT)
     private List<ResponseQuestion> responses ;
 
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference
     private QuizCourse quizcourse ;
 
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference(value = "questio-parc")
     private QuizParcour quizparcour ;
 

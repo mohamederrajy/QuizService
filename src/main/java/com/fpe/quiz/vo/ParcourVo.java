@@ -1,4 +1,4 @@
-package vo;
+package com.fpe.quiz.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

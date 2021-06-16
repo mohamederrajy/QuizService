@@ -23,12 +23,12 @@ public class QuizParcour implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Idquiz;
     private Integer  numberquestions ;
-    @OneToMany(mappedBy = "quizparcour" , cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "quizparcour" , cascade = CascadeType.ALL,orphanRemoval=true)
     @JsonManagedReference(value = "questio-parc")
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Question> questions ;
 
-    @OneToOne( fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne
     private Parcour parcour ;
 
 }

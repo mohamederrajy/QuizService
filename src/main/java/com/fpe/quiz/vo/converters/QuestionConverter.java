@@ -1,9 +1,10 @@
-package vo.converters;
+package com.fpe.quiz.vo.converters;
 
 import com.fpe.quiz.model.Question;
+import com.fpe.quiz.model.QuizCourse;
 import com.fpe.quiz.utils.AbstractConverter;
 import org.springframework.stereotype.Component;
-import vo.QuestionVo;
+import com.fpe.quiz.vo.QuestionVo;
 
 @Component
 public class QuestionConverter extends AbstractConverter<Question, QuestionVo> {

@@ -1,6 +1,5 @@
-package vo;
-import com.fpe.quiz.model.Coure;
-import com.fpe.quiz.model.Question;
+package com.fpe.quiz.vo;
+import com.fpe.quiz.model.QuizCourse;
 import lombok.*;
 
 import java.util.List;
@@ -14,6 +13,7 @@ public class QuizCourseVo {
     private Integer  numberquestions ;
     private List<QuestionVo> questions ;
     private CoureVo coure ;
+
 
 
 

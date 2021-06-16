@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/Api/Question")
+@RequestMapping("/api/question")
 public class QuestionControle {
 
     @Autowired
@@ -38,6 +38,10 @@ public class QuestionControle {
     public List<ResponseQuestion> GetallRespons (@PathVariable Long id) {
 
         return questionService.GetallRespons(id);
+    }
+    @DeleteMapping("/{id}")
+    public void DeleteById(@PathVariable Long id ){
+        questionService.DeleteById(id);
     }
 
 }

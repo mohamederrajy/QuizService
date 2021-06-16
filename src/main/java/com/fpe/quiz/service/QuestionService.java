@@ -10,4 +10,5 @@ public interface QuestionService {
     public List<Question> findAll();
     public Question findById(long id);
     public List<ResponseQuestion> GetallRespons(long id);
+    public void DeleteById(Long id);
 }

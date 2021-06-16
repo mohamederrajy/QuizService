@@ -1,6 +1,5 @@
-package vo;
+package com.fpe.quiz.vo;
 
-import com.fpe.quiz.model.ResponseQuestion;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,5 +15,6 @@ public class QuestionVo {
     private Long idquestion;
     private String Question ;
     private List<ResponseQuestionVo> responses ;
+
 
 }

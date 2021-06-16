@@ -5,22 +5,30 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.Cascade;
+import org.springframework.dao.DataAccessException;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class ResponseQuestion implements Serializable {
+public class EtudiantQuizCour{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Idreponse;
-    private String response ;
-    private Boolean correct ;
-    @ManyToOne( cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JsonBackReference(value = "response-ques")
-    private Question question ;
+    private Long id;
+    private Date datedepass ;
+    private double note  ;
+
+    @OneToOne
+    private Etudiant etudiant ;
+
+    @OneToOne
+    @JsonBackReference
+    private QuizCourse quizCourse ;
+
+
 }

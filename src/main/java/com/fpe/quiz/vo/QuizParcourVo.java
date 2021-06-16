@@ -1,5 +1,4 @@
-package vo;
-import com.fpe.quiz.model.Parcour;
+package com.fpe.quiz.vo;
 import lombok.*;
 
 import java.util.List;

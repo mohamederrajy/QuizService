@@ -23,14 +23,15 @@ public class  QuizCourse implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Idquiz;
     private Integer  numberquestions ;
-    @OneToMany(mappedBy = "quizcourse" , cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "quizcourse" , cascade = CascadeType.ALL, orphanRemoval=true)
     @JsonManagedReference
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Question> questions ;
 
-    @OneToOne( fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne
     @JsonBackReference
     private Coure coure ;
+
 
 
 

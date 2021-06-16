@@ -7,20 +7,21 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class ResponseQuestion implements Serializable {
+public class Etudiant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Idreponse;
-    private String response ;
-    private Boolean correct ;
+    private Long idetudiant;
+    private String nom ;
+    private String prenom ;
+    private String email ;
+
     @ManyToOne( cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JsonBackReference(value = "response-ques")
-    private Question question ;
+    @JsonBackReference(value = "parcour-etudaint")
+    private Parcour parcour ;
 }
