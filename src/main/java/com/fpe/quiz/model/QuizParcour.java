@@ -29,6 +29,7 @@ public class QuizParcour implements Serializable {
     private List<Question> questions ;
 
     @OneToOne
+    @JsonBackReference
     private Parcour parcour ;
 
 }

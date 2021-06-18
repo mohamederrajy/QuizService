@@ -22,4 +22,11 @@ public class Coure implements Serializable {
     private String description ;
     private String title ;
 
+    @ManyToOne( cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JsonBackReference(value = "parcour-coure")
+    private Parcour parcour ;
+
+    @OneToOne
+    @JsonBackReference
+    private Prof prof ;
 }

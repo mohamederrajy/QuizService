@@ -26,8 +26,7 @@ public class EtudiantQuizCour{
     @OneToOne
     private Etudiant etudiant ;
 
-    @OneToOne
-    @JsonBackReference
+    @OneToOne( cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval=true)
     private QuizCourse quizCourse ;
 
 

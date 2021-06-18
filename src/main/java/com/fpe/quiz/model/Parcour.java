@@ -28,4 +28,9 @@ public class Parcour {
     @JsonManagedReference(value = "parcour-etudaint")
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Etudiant> etudiants ;
+
+    @OneToMany(mappedBy = "parcour" , cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JsonManagedReference(value = "parcour-coure")
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<Coure> coures ;
 }

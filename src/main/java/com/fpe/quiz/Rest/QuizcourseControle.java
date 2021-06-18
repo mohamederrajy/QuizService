@@ -51,4 +51,21 @@ public class QuizcourseControle {
         return quizCourseService.findQuizCoursesByCoureIdcour(Idcour);
     }
 
+    @GetMapping("count/{Idprof}")
+    @ResponseBody
+    public long  NumberQuizCoure(@PathVariable Long Idprof) {
+        return quizCourseService.NumberOfQuizCoure(Idprof);
+    }
+
+    @GetMapping("parcour/{id}")
+    @ResponseBody
+    public List<QuizCourseVo> findQuizCoursesByparcour(@PathVariable Long id) {
+        return quizcoureConverter.toVo(quizCourseService.findQuizcourByParcour(id));
+    }
+    @GetMapping("prof/{id}")
+    @ResponseBody
+    public List<QuizCourseVo> findQuizCoursesByprof(@PathVariable Long id) {
+        return quizcoureConverter.toVo(quizCourseService.findQuizcourByProf(id));
+    }
+
 }

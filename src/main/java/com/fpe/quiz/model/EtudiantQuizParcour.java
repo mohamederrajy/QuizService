@@ -1,5 +1,6 @@
 package com.fpe.quiz.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,6 @@ public class EtudiantQuizParcour {
     @OneToOne
     private Etudiant etudiant ;
 
-    @OneToOne
+    @OneToOne( cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval=true)
     private QuizParcour quizParcour ;
 }
