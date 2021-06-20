@@ -24,6 +24,16 @@ public class EtudiantServiceImp implements EtudiantService {
     }
 
     @Override
+    public List<Etudiant> findByparcour(long parcoureid) {
+        return etudiantDao.findEtudiantByParcourIdparcour(parcoureid);
+    }
+
+    @Override
+    public long NumberEtudaintParcour(long parcoureid) {
+        return etudiantDao.countEtudiantByParcourIdparcour(parcoureid);
+    }
+
+    @Override
     public Etudiant findById(long id) {
         return etudiantDao.findById(id).get() ;
     }

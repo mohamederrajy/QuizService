@@ -17,7 +17,7 @@ public class EtudiantquizcourConverter extends AbstractConverter<EtudiantQuizCou
         item.setNote(vo.getNote());
         item.setDatedepass(vo.getDatedepass());
         item.setEtudiant(vo.getEtudiant());
-        item.setQuizCourse(vo.getQuizCourse());
+        item.setQuizCourse(new QuizcoureConverter().toItem(vo.getQuizCourse()));
         return item;
 
     }
@@ -30,7 +30,7 @@ public class EtudiantquizcourConverter extends AbstractConverter<EtudiantQuizCou
         vo.setNote(item.getNote());
         vo.setDatedepass(item.getDatedepass());
         vo.setEtudiant(item.getEtudiant());
-        vo.setQuizCourse(item.getQuizCourse());
+        vo.setQuizCourse(new QuizcoureConverter().toVo(item.getQuizCourse()));
 
         return vo;
     }

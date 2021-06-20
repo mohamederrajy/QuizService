@@ -8,4 +8,6 @@ import lombok.*;
 @ToString
 public class ProfDashboard {
     private  double numberquizcour ;
+    private  double numberCoures ;
+    private double numberEtudaint ;
 }

@@ -20,5 +20,5 @@ public class EtudiantQuizCourVo {
     private Date datedepass ;
     private double note  ;
     private Etudiant etudiant ;
-    private QuizCourse quizCourse ;
+    private QuizCourseVo quizCourse ;
 }

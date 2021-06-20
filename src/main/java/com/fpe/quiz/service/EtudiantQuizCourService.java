@@ -9,6 +9,7 @@ public interface EtudiantQuizCourService {
     public int save(EtudiantQuizCour etudiantQuizCour,Long idetudiant,Long Idquiz);
     public List<EtudiantQuizCour> findAll();
     public EtudiantQuizCour findById(long id);
-    public EtudiantQuizCour findEtudiantQuizCourByEtudiant(long id);
+    public List<EtudiantQuizCour> findEtudiantQuizCourByEtudiant(long id);
     public void deleteById(Long id);
+   // public List<EtudiantQuizCour> findEtudaintQuizCourebyQuiz(long quizid);
 }

@@ -5,29 +5,26 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.hibernate.annotations.Cascade;
-import org.springframework.dao.DataAccessException;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class EtudiantQuizCour{
+public class EtudiantCoure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date datedepass ;
-    private double note  ;
+    private Long nombresectionnonvalide;
+    private Long nombresectionvalide;
+
+
+    @OneToOne
+    private Coure coure ;
 
     @OneToOne
     private Etudiant etudiant ;
-
-    @OneToOne
-    private QuizCourse quizCourse ;
-
 
 }

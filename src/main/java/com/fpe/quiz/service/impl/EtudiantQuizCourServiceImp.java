@@ -7,7 +7,6 @@ import com.fpe.quiz.model.Etudiant;
 import com.fpe.quiz.model.EtudiantQuizCour;
 import com.fpe.quiz.model.QuizCourse;
 import com.fpe.quiz.service.EtudiantQuizCourService;
-import com.fpe.quiz.service.EtudiantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -56,7 +55,7 @@ public class EtudiantQuizCourServiceImp implements EtudiantQuizCourService {
     }
 
     @Override
-    public EtudiantQuizCour findEtudiantQuizCourByEtudiant(long id) {
+    public List<EtudiantQuizCour> findEtudiantQuizCourByEtudiant(long id) {
         return etudiantQuizCourDao.findEtudiantQuizCourByEtudiant_Idetudiant(id);
     }
 
@@ -64,4 +63,6 @@ public class EtudiantQuizCourServiceImp implements EtudiantQuizCourService {
     public void  deleteById(Long id) {
          etudiantQuizCourDao.deleteById(id);
     }
+
+
 }

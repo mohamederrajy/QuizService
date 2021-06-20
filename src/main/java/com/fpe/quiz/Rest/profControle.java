@@ -1,5 +1,7 @@
 package com.fpe.quiz.Rest;
 
+import com.fpe.quiz.service.CouresService;
+import com.fpe.quiz.service.EtudiantService;
 import com.fpe.quiz.service.QuizCourseService;
 import com.fpe.quiz.vo.ProfDashboard;
 import com.fpe.quiz.vo.QuizCourseVo;
@@ -15,13 +17,22 @@ public class profControle {
 
     @Autowired
     QuizCourseService quizCourseService ;
+    @Autowired
+    CouresService couresService ;
 
-    @GetMapping("dashbord/{idprof}")
+    @Autowired
+    EtudiantService etudiantService ;
+
+    @GetMapping("dashbord/{idprof}/parcour/{idparcour}")
     @ResponseBody
-    public ProfDashboard dashboard (@PathVariable Long idprof){
+    public ProfDashboard dashboard (@PathVariable Long idprof,@PathVariable Long idparcour){
         ProfDashboard profDashboard = new ProfDashboard();
        long  NumberQuizCoure = quizCourseService.NumberOfQuizCoure(idprof);
+       long numberEtudaint = etudiantService.NumberEtudaintParcour(idparcour);
+       long NumberCoures = couresService.NumberOfCours(idprof) ;
        profDashboard.setNumberquizcour(NumberQuizCoure);
+       profDashboard.setNumberCoures(NumberCoures);
+       profDashboard.setNumberEtudaint(numberEtudaint);
        return  profDashboard;
 
     }

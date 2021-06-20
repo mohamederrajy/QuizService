@@ -50,9 +50,10 @@ public class EtudiantQuizCourControle {
     }
 
     @GetMapping("etudaint/{id}")
-    public EtudiantQuizCourVo findByEtudaint(@PathVariable Long id) {
+    public List<EtudiantQuizCourVo> findByEtudaint(@PathVariable Long id) {
 
         return etudiantquizcourConverter.toVo(etudiantQuizCourService.findEtudiantQuizCourByEtudiant(id)) ;
     }
+
 
 }

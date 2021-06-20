@@ -13,16 +13,16 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Prof {
+public class Section {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idprof;
-    private String nom ;
-    private String prenom ;
-    private String email ;
-
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+    private String title;
+    @Lob
+    @Column(columnDefinition="TEXT")
+    private String contenu;
     @ManyToOne( cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JsonBackReference(value = "parcour-prof")
-    private Parcour parcour ;
+    @JsonBackReference(value = "Coure-section")
+    private Coure coure;
 
 }
