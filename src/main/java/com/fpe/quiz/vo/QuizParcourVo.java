@@ -11,6 +11,6 @@ public class QuizParcourVo {
     private Long Idquiz;
     private Integer  numberquestions ;
     private List<QuestionVo> questions ;
-    private ParcourVo parcour ;
+    private Long idparcour;
 
 }

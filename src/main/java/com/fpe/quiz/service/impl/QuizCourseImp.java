@@ -31,7 +31,7 @@ public class QuizCourseImp  implements QuizCourseService {
 
     @Override
     public List<QuizCourse> findQuizcourByParcour(long id) {
-        return quizCourseDao.findQuizCoursesByCoure_Parcour_Idparcour(id);
+        return quizCourseDao.findQuizCoursesByCoure_Idparcour(id);
     }
 
     @Override
@@ -67,12 +67,12 @@ public class QuizCourseImp  implements QuizCourseService {
 
     @Override
     public long NumberOfQuizCoure(Long idprof) {
-        return quizCourseDao.countQuizCourseByCoure_Prof_Idprof(idprof);
+        return quizCourseDao.countQuizCourseByCoure_Idprof(idprof);
     }
 
     @Override
     public List<QuizCourse> findQuizcourByProf(long id) {
-        return quizCourseDao.findQuizCourseByCoure_Prof_Idprof(id);
+        return quizCourseDao.findQuizCourseByCoure_Idprof(id);
     }
 
 

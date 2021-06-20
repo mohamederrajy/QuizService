@@ -9,7 +9,7 @@ public class QuizparcourConverter extends AbstractConverter<QuizParcour, QuizPar
     public QuizParcour toItem(QuizParcourVo vo) {
         if (vo == null) return null;
         QuizParcour item = new QuizParcour();
-        item.setParcour(new ParcourConverter().toItem(vo.getParcour()));
+        item.setIdparcour(vo.getIdparcour());
         item.setNumberquestions(vo.getNumberquestions());
         item.setIdquiz(vo.getIdquiz());
         item.setQuestions(new QuestionConverter().toItem(vo.getQuestions()));
@@ -24,7 +24,7 @@ public class QuizparcourConverter extends AbstractConverter<QuizParcour, QuizPar
         vo.setNumberquestions(item.getNumberquestions());
         vo.setIdquiz(item.getIdquiz());
         vo.setQuestions(new QuestionConverter().toVo(item.getQuestions()));
-        vo.setParcour(new ParcourConverter().toVo(item.getParcour()));
+        vo.setIdparcour(item.getIdparcour());
         return vo;
     }
 }

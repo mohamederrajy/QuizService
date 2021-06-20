@@ -1,13 +1,10 @@
 package com.fpe.quiz.service.impl;
 
 import com.fpe.quiz.Dao.EtudiantCoureDao;
-import com.fpe.quiz.Dao.EtudiantDao;
 import com.fpe.quiz.model.Coure;
-import com.fpe.quiz.model.Etudiant;
 import com.fpe.quiz.model.EtudiantCoure;
 import com.fpe.quiz.service.CouresService;
 import com.fpe.quiz.service.EtudiantCoureService;
-import com.fpe.quiz.service.EtudiantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +15,7 @@ public class EtudiantCoureServiceImp implements EtudiantCoureService {
     @Autowired
     EtudiantCoureDao etudiantCoureDao ;
 
-    @Autowired
-    EtudiantService etudiantService ;
+
 
     @Autowired
     CouresService couresService ;
@@ -28,11 +24,10 @@ public class EtudiantCoureServiceImp implements EtudiantCoureService {
     @Override
     public EtudiantCoure save(EtudiantCoure etudiantCoure, Long idetudaint, Long idcoure) {
         Coure coure =  couresService.findById(idcoure);
-        Etudiant etudiant = etudiantService.findById(idetudaint) ;
-        EtudiantCoure etudiantCoure1 = etudiantCoureDao.findEtudiantCoureByEtudiant_IdetudiantAndCoure_Idcour(idetudaint,idcoure);
+        EtudiantCoure etudiantCoure1 = etudiantCoureDao.findEtudiantCoureByCoure_IdcourAndIdetudiant(idetudaint,idcoure);
 
-        if(coure!=null && etudiant!=null && etudiantCoure1==null){
-            etudiantCoure.setEtudiant(etudiant);
+        if(coure!=null && idetudaint!=null && etudiantCoure1==null){
+            etudiantCoure.setIdetudiant(idetudaint);
             etudiantCoure.setCoure(coure);
             etudiantCoureDao.save(etudiantCoure);
         }
@@ -51,7 +46,7 @@ public class EtudiantCoureServiceImp implements EtudiantCoureService {
 
     @Override
     public EtudiantCoure update(EtudiantCoure etudiantCoure,Long coureid,Long idetudaint) {
-       EtudiantCoure etudiantCoure1 = etudiantCoureDao.findEtudiantCoureByEtudiant_IdetudiantAndCoure_Idcour(idetudaint,coureid);
+       EtudiantCoure etudiantCoure1 = etudiantCoureDao.findEtudiantCoureByCoure_IdcourAndIdetudiant(idetudaint,coureid);
         etudiantCoure1.setNombresectionnonvalide(etudiantCoure.getNombresectionnonvalide());
         etudiantCoure1.setNombresectionvalide(etudiantCoure.getNombresectionvalide());
         etudiantCoureDao.save(etudiantCoure1);
@@ -71,11 +66,11 @@ public class EtudiantCoureServiceImp implements EtudiantCoureService {
 
     @Override
     public List<EtudiantCoure> findByEtudaint(long eudaintId) {
-        return etudiantCoureDao.findEtudiantCoureByEtudiant_Idetudiant(eudaintId);
+        return etudiantCoureDao.findEtudiantCoureByIdetudiant(eudaintId);
     }
 
     @Override
     public EtudiantCoure findEtudaintCoureByEtudaintAndCour(long idetudaint, long coureid) {
-        return etudiantCoureDao.findEtudiantCoureByEtudiant_IdetudiantAndCoure_Idcour(idetudaint,coureid);
+        return etudiantCoureDao.findEtudiantCoureByCoure_IdcourAndIdetudiant(idetudaint,coureid);
     }
 }

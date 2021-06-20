@@ -24,7 +24,7 @@ public class EtudiantCoure {
     @OneToOne
     private Coure coure ;
 
-    @OneToOne
-    private Etudiant etudiant ;
+
+    private Long idetudiant;
 
 }

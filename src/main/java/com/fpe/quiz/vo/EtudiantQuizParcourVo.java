@@ -1,6 +1,5 @@
 package com.fpe.quiz.vo;
 
-import com.fpe.quiz.model.Etudiant;
 import com.fpe.quiz.model.QuizParcour;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +16,6 @@ public class EtudiantQuizParcourVo {
     private Long id;
     private Date datedepass ;
     private double note  ;
-    private Etudiant etudiant ;
+    private Long idetudiant;
     private QuizParcour quizParcour ;
 }

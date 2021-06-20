@@ -1,6 +1,5 @@
 package com.fpe.quiz.service;
 
-import com.fpe.quiz.model.Etudiant;
 import com.fpe.quiz.model.EtudiantQuizCour;
 
 import java.util.List;

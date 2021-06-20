@@ -1,12 +1,8 @@
 package com.fpe.quiz.service.impl;
 
-import com.fpe.quiz.Dao.EtudiantDao;
 import com.fpe.quiz.Dao.EtudiantQuizParcourDao;
-import com.fpe.quiz.Dao.QuizCourseDao;
 import com.fpe.quiz.Dao.QuizParcourDao;
-import com.fpe.quiz.model.Etudiant;
 import com.fpe.quiz.model.EtudiantQuizParcour;
-import com.fpe.quiz.model.QuizCourse;
 import com.fpe.quiz.model.QuizParcour;
 import com.fpe.quiz.service.EtudiantQuizParcourService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,19 +16,17 @@ public class EtudiantQuizParcourServiceImp  implements EtudiantQuizParcourServic
     @Autowired
     EtudiantQuizParcourDao etudiantQuizParcourDao;
 
-    @Autowired
-    EtudiantDao etudiantDao ;
+
 
     @Autowired
     QuizParcourDao quizParcourDao ;
 
     @Override
     public int save(EtudiantQuizParcour etudiantQuizParcour, Long idetudiant, Long Idquiz) {
-        Etudiant etudiant = etudiantDao.findById(idetudiant).get();
         QuizParcour quizParcour = quizParcourDao.findById(Idquiz).get();
-        if(etudiantQuizParcour!=null && etudiant!=null && quizParcour!=null){
+        if(etudiantQuizParcour!=null && idetudiant!=null && quizParcour!=null){
 
-            etudiantQuizParcour.setEtudiant(etudiant);
+            etudiantQuizParcour.setIdetudiant(idetudiant);
             etudiantQuizParcour.setQuizParcour(quizParcour);
             etudiantQuizParcour.setDatedepass(new Date());
             etudiantQuizParcourDao.save(etudiantQuizParcour);
@@ -59,6 +53,6 @@ public class EtudiantQuizParcourServiceImp  implements EtudiantQuizParcourServic
 
     @Override
     public EtudiantQuizParcour findEtudiantQuizCourByEtudiant(long id) {
-        return etudiantQuizParcourDao.findEtudiantQuizCourByEtudiant_Idetudiant(id);
+        return etudiantQuizParcourDao.findEtudiantQuizCourByIdetudiant(id);
     }
 }

@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface EtudiantCoureDao extends JpaRepository<EtudiantCoure, Long> {
     public List<EtudiantCoure> findEtudiantCoureByCoureIdcour(Long idcour) ;
-    public List<EtudiantCoure> findEtudiantCoureByEtudiant_Idetudiant(Long idetudiant);
-    public EtudiantCoure findEtudiantCoureByEtudiant_IdetudiantAndCoure_Idcour(Long idetudiant,Long idcour);
+    public List<EtudiantCoure> findEtudiantCoureByIdetudiant(Long idetudiant);
+    public EtudiantCoure findEtudiantCoureByCoure_IdcourAndIdetudiant(Long idetudiant,Long idcour);
 }

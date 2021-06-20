@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EtudiantQuizParcourDao extends JpaRepository<EtudiantQuizParcour, Long> {
-    public EtudiantQuizParcour findEtudiantQuizCourByEtudiant_Idetudiant(long idetudiant );
+    public EtudiantQuizParcour findEtudiantQuizCourByIdetudiant(long idetudiant );
 
 }

@@ -23,8 +23,8 @@ public class EtudiantQuizCour{
     private Date datedepass ;
     private double note  ;
 
-    @OneToOne
-    private Etudiant etudiant ;
+    private Long idetudiant;
+
 
     @OneToOne
     private QuizCourse quizCourse ;

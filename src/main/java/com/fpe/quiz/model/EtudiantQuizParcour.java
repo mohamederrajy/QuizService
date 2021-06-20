@@ -21,8 +21,7 @@ public class EtudiantQuizParcour {
     private Date datedepass ;
     private double note  ;
 
-    @OneToOne
-    private Etudiant etudiant ;
+    private Long idetudiant;
 
     @OneToOne( cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval=true)
     private QuizParcour quizParcour ;

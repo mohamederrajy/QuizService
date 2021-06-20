@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface QuizParcourDao extends JpaRepository<QuizParcour, Long> {
-    public QuizParcour findQuizParcourByParcourIdparcour(Long idparcour);
+    public QuizParcour findQuizParcourByIdparcour(Long idparcour);
 }

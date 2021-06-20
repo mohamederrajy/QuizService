@@ -28,8 +28,7 @@ public class QuizParcour implements Serializable {
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Question> questions ;
 
-    @OneToOne
-    @JsonBackReference
-    private Parcour parcour ;
+    private Long idparcour;
+
 
 }

@@ -1,7 +1,6 @@
 package com.fpe.quiz.vo.converters;
 
 import com.fpe.quiz.model.EtudiantQuizCour;
-import com.fpe.quiz.model.Parcour;
 import com.fpe.quiz.utils.AbstractConverter;
 import com.fpe.quiz.vo.EtudiantQuizCourVo;
 import org.springframework.stereotype.Component;
@@ -16,7 +15,7 @@ public class EtudiantquizcourConverter extends AbstractConverter<EtudiantQuizCou
         item.setId(vo.getId());
         item.setNote(vo.getNote());
         item.setDatedepass(vo.getDatedepass());
-        item.setEtudiant(vo.getEtudiant());
+        item.setIdetudiant(vo.getIdetudiant());
         item.setQuizCourse(new QuizcoureConverter().toItem(vo.getQuizCourse()));
         return item;
 
@@ -29,7 +28,7 @@ public class EtudiantquizcourConverter extends AbstractConverter<EtudiantQuizCou
         vo.setId(item.getId());
         vo.setNote(item.getNote());
         vo.setDatedepass(item.getDatedepass());
-        vo.setEtudiant(item.getEtudiant());
+        vo.setIdetudiant(item.getIdetudiant());
         vo.setQuizCourse(new QuizcoureConverter().toVo(item.getQuizCourse()));
 
         return vo;

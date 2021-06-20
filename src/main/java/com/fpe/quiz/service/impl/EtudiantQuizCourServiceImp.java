@@ -1,9 +1,7 @@
 package com.fpe.quiz.service.impl;
 
-import com.fpe.quiz.Dao.EtudiantDao;
 import com.fpe.quiz.Dao.EtudiantQuizCourDao;
 import com.fpe.quiz.Dao.QuizCourseDao;
-import com.fpe.quiz.model.Etudiant;
 import com.fpe.quiz.model.EtudiantQuizCour;
 import com.fpe.quiz.model.QuizCourse;
 import com.fpe.quiz.service.EtudiantQuizCourService;
@@ -18,8 +16,7 @@ public class EtudiantQuizCourServiceImp implements EtudiantQuizCourService {
     @Autowired
     EtudiantQuizCourDao etudiantQuizCourDao ;
 
-    @Autowired
-    EtudiantDao etudiantDao ;
+
 
     @Autowired
     QuizCourseDao quizCourseDao ;
@@ -27,10 +24,9 @@ public class EtudiantQuizCourServiceImp implements EtudiantQuizCourService {
 
     @Override
     public int  save(EtudiantQuizCour etudiantQuizCour, Long idetudiant, Long Idquiz) {
-        Etudiant etudiant = etudiantDao.findById(idetudiant).get();
         QuizCourse quizCourse = quizCourseDao.findById(Idquiz).get();
-        if(etudiantQuizCour!=null && etudiant!=null && quizCourse!=null){
-            etudiantQuizCour.setEtudiant(etudiant);
+        if(etudiantQuizCour!=null && idetudiant!=null && quizCourse!=null){
+            etudiantQuizCour.setIdetudiant(idetudiant);
             etudiantQuizCour.setQuizCourse(quizCourse);
             etudiantQuizCour.setDatedepass(new Date());
             etudiantQuizCourDao.save(etudiantQuizCour);
@@ -56,7 +52,7 @@ public class EtudiantQuizCourServiceImp implements EtudiantQuizCourService {
 
     @Override
     public List<EtudiantQuizCour> findEtudiantQuizCourByEtudiant(long id) {
-        return etudiantQuizCourDao.findEtudiantQuizCourByEtudiant_Idetudiant(id);
+        return etudiantQuizCourDao.findEtudiantQuizCourByIdetudiant(id);
     }
 
     @Override

@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public interface QuizCourseDao extends JpaRepository<QuizCourse, Long> {
     public QuizCourse findQuizCoursesByCoureIdcour(Long Idcour);
-    public List<QuizCourse> findQuizCoursesByCoure_Parcour_Idparcour(Long idparcour);
-    public long countQuizCourseByCoure_Prof_Idprof(Long idprof);
-    public  List<QuizCourse> findQuizCourseByCoure_Prof_Idprof(Long idprof);
+    public List<QuizCourse> findQuizCoursesByCoure_Idparcour(Long idparcour);
+    public long countQuizCourseByCoure_Idprof(Long idprof);
+    public  List<QuizCourse> findQuizCourseByCoure_Idprof(Long idprof);
 }

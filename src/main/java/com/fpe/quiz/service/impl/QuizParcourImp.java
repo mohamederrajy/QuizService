@@ -1,9 +1,6 @@
 package com.fpe.quiz.service.impl;
 
-import com.fpe.quiz.Dao.ParcourDao;
 import com.fpe.quiz.Dao.QuizParcourDao;
-import com.fpe.quiz.model.Coure;
-import com.fpe.quiz.model.Parcour;
 import com.fpe.quiz.model.QuizParcour;
 import com.fpe.quiz.service.QuizParcourService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +12,7 @@ import java.util.List;
 public class QuizParcourImp  implements QuizParcourService {
     @Autowired
     QuizParcourDao quizParcourDao;
-    @Autowired
-    ParcourDao parcourDao ;
+
 
     @Override
     public QuizParcour findById(long id) {
@@ -25,12 +21,12 @@ public class QuizParcourImp  implements QuizParcourService {
 
     @Override
     public QuizParcour save(QuizParcour quizParcour, Long parcourid) {
-        Parcour parcour = parcourDao.findById(parcourid).get();
-        if (parcour == null) {
+
+        if (parcourid == null) {
             return null;
         } else {
             try {
-                quizParcour.setParcour(parcour);
+                quizParcour.setIdparcour(parcourid);
                 return quizParcourDao.save(quizParcour);
             } catch (Exception e) {
                 return null;
@@ -52,6 +48,6 @@ public class QuizParcourImp  implements QuizParcourService {
 
     @Override
     public QuizParcour findQuizParcourByParcour(Long idparcour) {
-        return quizParcourDao.findQuizParcourByParcourIdparcour(idparcour);
+        return quizParcourDao.findQuizParcourByIdparcour(idparcour);
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface CouresDao extends JpaRepository<Coure, Long> {
-    List<Coure> findCoureByParcour_Idparcour(Long id);
-    public List<Coure> findCoureByProfIdprof(Long idprof) ;
-    public Long countCoureByProfIdprof(Long idprof);
+    List<Coure> findCoureByIdparcour(Long id);
+    public List<Coure> findCoureByIdprof(Long idprof) ;
+    public Long countCoureByIdprof(Long idprof);
 }

@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface EtudiantQuizCourDao extends JpaRepository<EtudiantQuizCour, Long> {
-    public List<EtudiantQuizCour> findEtudiantQuizCourByEtudiant_Idetudiant(long idetudiant);
+    public List<EtudiantQuizCour> findEtudiantQuizCourByIdetudiant(long idetudiant);
 
 }

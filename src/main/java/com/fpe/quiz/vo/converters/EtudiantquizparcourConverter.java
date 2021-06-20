@@ -16,7 +16,7 @@ public class EtudiantquizparcourConverter extends AbstractConverter<EtudiantQuiz
         item.setId(vo.getId());
         item.setNote(vo.getNote());
         item.setDatedepass(vo.getDatedepass());
-        item.setEtudiant(vo.getEtudiant());
+        item.setIdetudiant(vo.getIdetudiant());
         item.setQuizParcour(vo.getQuizParcour());
         return item;
 
@@ -29,7 +29,7 @@ public class EtudiantquizparcourConverter extends AbstractConverter<EtudiantQuiz
         vo.setId(item.getId());
         vo.setNote(item.getNote());
         vo.setDatedepass(item.getDatedepass());
-        vo.setEtudiant(item.getEtudiant());
+        vo.setIdetudiant(item.getIdetudiant());
         vo.setQuizParcour(item.getQuizParcour());
 
         return vo;
