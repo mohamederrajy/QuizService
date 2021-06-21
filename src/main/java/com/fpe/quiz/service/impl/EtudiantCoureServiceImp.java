@@ -24,7 +24,7 @@ public class EtudiantCoureServiceImp implements EtudiantCoureService {
     @Override
     public EtudiantCoure save(EtudiantCoure etudiantCoure, Long idetudaint, Long idcoure) {
         Coure coure =  couresService.findById(idcoure);
-        EtudiantCoure etudiantCoure1 = etudiantCoureDao.findEtudiantCoureByCoure_IdcourAndIdetudiant(idetudaint,idcoure);
+        EtudiantCoure etudiantCoure1 = etudiantCoureDao.findEtudiantCoureByIdetudiantAndCoure_Idcour(idetudaint,idcoure);
 
         if(coure!=null && idetudaint!=null && etudiantCoure1==null){
             etudiantCoure.setIdetudiant(idetudaint);
@@ -46,7 +46,7 @@ public class EtudiantCoureServiceImp implements EtudiantCoureService {
 
     @Override
     public EtudiantCoure update(EtudiantCoure etudiantCoure,Long coureid,Long idetudaint) {
-       EtudiantCoure etudiantCoure1 = etudiantCoureDao.findEtudiantCoureByCoure_IdcourAndIdetudiant(idetudaint,coureid);
+       EtudiantCoure etudiantCoure1 = etudiantCoureDao.findEtudiantCoureByIdetudiantAndCoure_Idcour(idetudaint,coureid);
         etudiantCoure1.setNombresectionnonvalide(etudiantCoure.getNombresectionnonvalide());
         etudiantCoure1.setNombresectionvalide(etudiantCoure.getNombresectionvalide());
         etudiantCoureDao.save(etudiantCoure1);
@@ -71,6 +71,6 @@ public class EtudiantCoureServiceImp implements EtudiantCoureService {
 
     @Override
     public EtudiantCoure findEtudaintCoureByEtudaintAndCour(long idetudaint, long coureid) {
-        return etudiantCoureDao.findEtudiantCoureByCoure_IdcourAndIdetudiant(idetudaint,coureid);
+        return etudiantCoureDao.findEtudiantCoureByIdetudiantAndCoure_Idcour(idetudaint,coureid);
     }
 }
