@@ -6,7 +6,7 @@ import com.fpe.quiz.vo.ProfDashboard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/prof")
 public class profdashbordRest {
